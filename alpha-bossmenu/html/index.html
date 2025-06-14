@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaniWorld Bossmenu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+
+<body>
+
+    <div id="container" class="container" style="display: none;">
+        <!-- Sidebar Navigation -->
+<div class="sidebar">
+  <a class="nav-item active" data-page="dashboard"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+  <a class="nav-item" data-page="employees"><i class="fas fa-user-tie"></i><span>Employees</span></a>
+  <a class="nav-item" data-page="society"><i class="fas fa-building-columns"></i><span>Society</span></a>
+  <a class="nav-item" data-page="permissions"><i class="fas fa-user-shield"></i><span>Permissions</span></a>
+  <a class="nav-item" data-page="settings"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+  <a class="nav-item" style="margin-top: auto;" id="close-ui"><i class="fas fa-door-open"></i><span>Logout</span></a>
+</div>
+
+
+
+        <!-- Main Content Area -->
+        <div class="content">
+            <!-- Dashboard Page -->
+            <div class="page active" id="dashboard-page">
+                <header>
+                    <div class="header-title">
+                        <h1 id="department-title">Dashboard</h1>
+                        <p id="employees-count">Managing 0 employees</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline" id="refresh-data-btn">
+                            <i class="fas fa-sync-alt"></i> Refresh Data
+                        </button>
+                    </div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-title">Total Employees</div>
+                        <div class="stat-card-value" id="total-employees">0</div>
+                        <div class="stat-card-trend">
+                            <i class="fas fa-users"></i> <span id="status-online">0</span> currently online
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-title">Average Work Hours</div>
+                        <div class="stat-card-value" id="avg-hours">0</div>
+                        <div class="stat-card-trend">
+                            <i class="fas fa-clock"></i> hours per employee weekly
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-title">Highest Rank</div>
+                        <div class="stat-card-value" id="highest-grade">-</div>
+                        <div class="stat-card-trend">
+                            <i class="fas fa-star"></i> <span id="highest-grade-count">0</span> employees at this rank
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-title">Most Common Rank</div>
+                        <div class="stat-card-value" id="common-grade">-</div>
+                        <div class="stat-card-trend">
+                            <i class="fas fa-user-friends"></i> <span id="common-grade-count">0</span> employees at this
+                            rank
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Activity Overview - By Hour</div>
+                            <div class="chart-actions">
+                                <div class="chart-action" id="download-activity"><i class="fas fa-download"></i></div>
+                                <div class="chart-action" id="expand-activity"><i class="fas fa-expand"></i></div>
+                            </div>
+                        </div>
+                        <div class="activity-chart" id="activity-chart">
+                            <!-- Generated dynamically by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Online Employees</div>
+                            <div class="chart-actions">
+                                <div class="chart-action" id="refresh-online"><i class="fas fa-sync-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="employee-list" id="online-employees">
+                            <!-- Generated dynamically by JavaScript -->
+                            <div class="empty-list">No employees currently online</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header">
+                        <div class="table-title">Employee List</div>
+                        <div class="table-actions">
+                            <input type="text" id="search-employee" placeholder="Search employees...">
+                        </div>
+                    </div>
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Rank</th>
+                                <th>Status</th>
+                                <th class="location-column">Location</th>
+                                <th class="playtime-column">Play Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employees-table">
+                            <!-- Generated dynamically by JavaScript -->
+                            <tr>
+                                <td colspan="6" class="empty-table">Loading data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Employees Page -->
+            <div class="page" id="employees-page">
+                <header>
+                    <div class="header-title">
+                        <h1>Employee Management</h1>
+                        <p id="employees-management-count">Managing 0 employees</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="hire-employee-btn">
+                            <i class="fas fa-user-plus"></i> Hire Employee
+                        </button>
+                    </div>
+                </header>
+
+                <div class="employee-management">
+                    <div class="tabs">
+                        <div class="tab active" data-filter="all">All</div>
+                        <div class="tab" data-filter="online">Online</div>
+                        <div class="tab" data-filter="offline">Offline</div>
+                        <div class="tab" data-filter="management">Management</div>
+                    </div>
+
+                    <input type="text" id="search-management-employee" placeholder="Search employees...">
+
+                    <div class="table-container">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Rank</th>
+                                    <th>Status</th>
+                                    <th class="playtime-column">Play Time</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="management-employees-table">
+                                <!-- Generated dynamically by JavaScript -->
+                                <tr>
+                                    <td colspan="5" class="empty-table">Loading data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="page" id="society-page">
+                <header>
+                    <div class="header-title">
+                        <h1><i class="fas fa-coins"></i> Society Management</h1>
+                        <p>Manage your organization's finances safely and efficiently</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline" id="refresh-society-btn">
+                            <i class="fas fa-sync-alt"></i> Refresh Data
+                        </button>
+                    </div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <div class="stat-card society-balance-card">
+                        <div class="stat-card-title">Society Balance</div>
+                        <div class="stat-card-value" id="society-balance">$0</div>
+                        <div class="stat-card-trend">
+                            <i class="fas fa-wallet"></i> <span id="society-name">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-title">Last Transaction</div>
+                        <div class="stat-card-value" id="last-transaction-amount">$0</div>
+                        <div class="stat-card-trend">
+                            <i class="fas fa-clock"></i> <span id="last-transaction-time">No recent transactions</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-title">Today's Activity</div>
+                        <div class="stat-card-value" id="today-transactions">0</div>
+                        <div class="stat-card-trend">
+                            <i class="fas fa-exchange-alt"></i> <span id="today-transactions-amount">$0</span> total
+                            volume
+                        </div>
+                    </div>
+                </div>
+
+
+
+    <div class="society-actions-row">
+        <div class="society-action-card">
+            <div class="society-card-title">
+                <i class="fas fa-arrow-circle-up"></i> Deposit Money
+            </div>
+            <div class="form-group">
+                <label for="deposit-amount">Amount to Deposit</label>
+                <input type="number" id="deposit-amount" min="1" placeholder="Enter amount to deposit">
+            </div>
+            <button class="btn btn-primary" id="deposit-btn">
+                <i class="fas fa-arrow-circle-up"></i> Deposit Funds
+            </button>
+        </div>
+
+        <div class="society-action-card">
+            <div class="society-card-title">
+                <i class="fas fa-arrow-circle-down"></i> Withdraw Money
+            </div>
+            <div class="form-group">
+                <label for="withdraw-amount">Amount to Withdraw</label>
+                <input type="number" id="withdraw-amount" min="1" placeholder="Enter amount to withdraw">
+            </div>
+            <button class="btn btn-primary" id="withdraw-btn">
+                <i class="fas fa-arrow-circle-down"></i> Withdraw Funds
+            </button>
+        </div>
+
+        <div class="society-action-card">
+            <div class="society-card-title">
+                <i class="fas fa-exchange-alt"></i> Transfer to Employee
+            </div>
+            <div class="form-group">
+                <label for="transfer-employee">Select Employee</label>
+                <select id="transfer-employee">
+                    <!-- Options will be filled dynamically -->
+                    <option value="">Select an employee</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="transfer-amount">Amount to Transfer</label>
+                <input type="number" id="transfer-amount" min="1" placeholder="Enter amount to transfer">
+            </div>
+            <button class="btn btn-primary" id="transfer-btn">
+                <i class="fas fa-exchange-alt"></i> Transfer Funds
+            </button>
+        </div>
+    </div>
+</div>
+            <div class="page" id="permissions-page">
+                <header>
+                    <div class="header-title">
+                        <h1><i class="fas fa-key"></i> Employee Permissions</h1>
+                        <p>Assign specific access rights to employees</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline" id="refresh-permissions-btn">
+                            <i class="fas fa-sync-alt"></i> Refresh Permissions
+                        </button>
+                    </div>
+                </header>
+            
+                <div class="permissions-container">
+                    <div class="permissions-selection">
+                        <div class="form-group">
+                            <label for="permissions-employee-select">Select Employee</label>
+                            <select id="permissions-employee-select" class="permissions-select">
+                                <option value="">-- Select an employee --</option>
+                                <!-- Employees will be loaded dynamically -->
+                            </select>
+                        </div>
+                    </div>
+            
+                    <div class="permissions-content" id="permissions-content" style="display: none;">
+                        <div class="permissions-card">
+                            <div class="permissions-title">Access Rights</div>
+                            <p class="permissions-description">Select which features this employee can access</p>
+            
+                            <div class="toggle-container">
+                                <p>Dashboard Access</p>
+                                <label class="toggle">
+                                    <input type="checkbox" id="perm-dashboard">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+            
+                            <div class="toggle-container">
+                                <p>Employee Management</p>
+                                <label class="toggle">
+                                    <input type="checkbox" id="perm-employees">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+            
+                            <div class="toggle-container">
+                                <p>Society Finances</p>
+                                <label class="toggle">
+                                    <input type="checkbox" id="perm-society">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+            
+
+            
+                            <div class="toggle-container">
+                                <p>Hiring & Firing</p>
+                                <label class="toggle">
+                                    <input type="checkbox" id="perm-hiringfiring">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+            
+                        <div class="save-permissions-container">
+                            <button class="btn btn-primary" id="save-permissions-btn">
+                                <i class="fas fa-save"></i> Save Permissions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Permission Confirmation Modal -->
+            <div class="modal" id="permissions-confirm-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title"><i class="fas fa-key"></i> Confirm Permission Changes</div>
+                        <div class="modal-close">&times;</div>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are about to modify permissions for <span id="confirm-permissions-employee" class="employee-name">Employee Name</span></p>
+                        <div class="permission-summary" id="permission-summary">
+                            <!-- Summary will be filled dynamically -->
+                        </div>
+                        <div class="warning-box">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <strong>Note:</strong> Granting permissions allows this employee to access sensitive job management features. Choose carefully.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline modal-close-btn">Cancel</button>
+                        <button class="btn btn-primary" id="confirm-permissions-btn">
+                            <i class="fas fa-check-circle"></i> Confirm Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Settings Page -->
+            <div class="page" id="settings-page">
+                <header>
+                    <div class="header-title">
+                        <h1>System Settings</h1>
+                        <p>Customize your management experience</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline" id="reset-settings-btn">
+                            <i class="fas fa-undo"></i> Reset Settings
+                        </button>
+                        <button class="btn btn-primary" id="save-settings-btn">
+                            <i class="fas fa-save"></i> Save Settings
+                        </button>
+                    </div>
+                </header>
+
+                <div class="settings-container">
+                    <div class="settings-card">
+                        <div class="settings-title">Appearance Settings</div>
+
+                        <div class="toggle-container">
+                            <p>Dark Mode</p>
+                            <label class="toggle">
+                                <input type="checkbox" id="darkMode" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-container">
+                            <p>Show Animations</p>
+                            <label class="toggle">
+                                <input type="checkbox" id="showAnimations" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-container">
+                            <p>Compact View</p>
+                            <label class="toggle">
+                                <input type="checkbox" id="compactView">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="settings-title">Display Settings</div>
+
+                        <div class="toggle-container">
+                            <p>Show Play Time</p>
+                            <label class="toggle">
+                                <input type="checkbox" id="showPlaytime" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-container">
+                            <p>Show Location</p>
+                            <label class="toggle">
+                                <input type="checkbox" id="showLocation" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="refreshInterval">Refresh Interval (seconds)</label>
+                            <input type="number" id="refreshInterval" min="30" max="300" value="60">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notificationSound">Notification Sound</label>
+                            <select id="notificationSound">
+                                <option value="none">None</option>
+                                <option value="default" selected>Default</option>
+                                <option value="alert">Alert</option>
+                                <option value="chime">Chime</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Applications Page -->
+            <div class="page" id="applications-page">
+                <header>
+                    <div class="header-title">
+                        <h1>Job Applications</h1>
+                        <p id="applications-count">0 pending applications</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline" id="refresh-applications-btn">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </header>
+
+                <div class="table-container">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Rank</th>
+                                <th>Status</th>
+                                <th>Applied</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applications-table">
+                            <!-- Generated dynamically by JavaScript -->
+                            <tr>
+                                <td colspan="5" class="empty-table">No applications found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Application Details Modal -->
+            <div id="application-details-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Application Details</h2>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="application-details-content">
+                            <!-- Generated dynamically by JavaScript -->
+                        </div>
+                        <div class="form-group">
+                            <label for="application-notes">Notes</label>
+                            <textarea id="application-notes" rows="4" placeholder="Add notes about this application..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" id="reject-application-btn">Reject</button>
+                        <button class="btn btn-primary" id="accept-application-btn">Accept</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="transfer-confirm-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"><i class="fas fa-exchange-alt"></i> Confirm Transfer</div>
+                <div class="modal-close">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>You are about to transfer <span id="confirm-transfer-amount"
+                        class="transaction-amount negative">$0</span> to <strong><span
+                            id="confirm-transfer-employee">Employee Name</span></strong></p>
+                <div class="form-group">
+                    <label for="transfer-note">Note (Optional)</label>
+                    <textarea id="transfer-note" placeholder="Add a note for this transaction"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline modal-close-btn">Cancel</button>
+                <button class="btn btn-primary" id="confirm-transfer-btn">
+                    <i class="fas fa-check-circle"></i> Confirm Transfer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deposit/Withdraw Confirmation Modal -  -->
+    <div class="modal" id="money-action-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="money-action-title">Confirm Action</div>
+                <div class="modal-close">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p id="money-action-message">Are you sure you want to proceed with this transaction?</p>
+                <div class="form-group">
+                    <label for="money-action-note">Note (Optional)</label>
+                    <textarea id="money-action-note" placeholder="Add a note for this transaction"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline modal-close-btn">Cancel</button>
+                <button class="btn btn-primary" id="confirm-money-action-btn">
+                    <i class="fas fa-check-circle"></i> Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Employee Modal -->
+    <div class="modal" id="edit-employee-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Edit Employee</div>
+                <div class="modal-close">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="edit-name">Full Name</label>
+                    <input type="text" id="edit-name" readonly>
+                    <input type="hidden" id="edit-citizenid">
+                </div>
+                <div class="form-group">
+                    <label for="edit-rank">Rank</label>
+                    <select id="edit-rank">
+                        <!-- Options created dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-note">Note</label>
+                    <textarea id="edit-note" placeholder="Notes about the employee"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="fire-employee-btn">Fire Employee</button>
+                <button class="btn btn-outline modal-close-btn">Cancel</button>
+                <button class="btn btn-primary" id="save-employee-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        Settings saved successfully!
+    </div>
+
+    <div id="custom-fire-menu" class="qb-fire-menu-container" style="display: none;">
+        <div class="qb-fire-menu-header">Fire Employee</div>
+        <div class="qb-fire-menu-message" id="fire-message">
+            Are you sure you want to fire this employee?
+        </div>
+        <div class="qb-fire-menu-buttons">
+            <div class="qb-fire-menu-button cancel" id="fire-cancel-btn">CANCEL</div>
+            <div class="qb-fire-menu-button confirm" id="fire-confirm-btn">FIRE</div>
+        </div>
+    </div>
+    <div class="modal" id="hire-employee-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"><i class="fas fa-user-plus"></i> Hire New Employee</div>
+                <div class="modal-close">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="hire-id">Player ID</label>
+                    <input type="number" id="hire-id" placeholder="Enter player ID" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="hire-rank">Rank</label>
+                    <select id="hire-rank">
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline modal-close-btn">Cancel</button>
+                <button class="btn btn-primary" id="confirm-hire-btn">
+                    <i class="fas fa-check-circle"></i> Hire Employee
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Form Container -->
+    <div id="application-container" class="application-container" style="display: none;">
+        <div class="application-header">
+            <div class="application-title">Job Application</div>
+            <div class="application-subtitle">Please fill out all required fields</div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+        <div class="application-content">
+            <div class="application-question" id="application-question">Question will appear here</div>
+            <span class="application-question-required" id="application-question-required"></span>
+
+            <textarea id="application-input_text" class="application-input" placeholder="Enter your answer here..." style="display: none;"></textarea>
+            <input type="number" id="application-input_number" class="application-input" placeholder="Enter a number..." style="display: none;">
+            <select id="application-input_select" class="application-input" style="display: none;">
+                <option value="">-- Select an option --</option>
+            </select>
+        </div>
+        <div class="application-buttons">
+            <button class="btn-cancel" id="cancel_app">Cancel</button>
+            <button class="btn-next" id="finish_task">Next</button>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="fire-menu.css">
+    <script src="script.js"></script>
+</body>
+
+</html>
