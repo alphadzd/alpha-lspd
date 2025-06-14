@@ -1,0 +1,1518 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    overflow: hidden;
+}
+
+
+@font-face {
+    font-family: 'TTLAKES';
+    src: url('../html/fonts/TTLAKES.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Integral CF Bold';
+    src: url('../html/fonts/Fontspring-DEMO-integralcf-bold.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Integral CF Light';
+    src: url('../html/fonts/Fontspring-DEMO-integralcf-medium.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Integral CF';
+    src: url('../html/fonts/Fontspring-DEMO-integralcf-regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Integral CFI';
+    src: url('../html/fonts/Fontspring-DEMO-integralcf-boldoblique.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../html/fonts/Gilroy-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ChakraPetch';
+    src: url('../html/fonts/ChakraPetch-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Monument Extended';
+    src: url('../html/fonts/MonumentExtended-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signature';
+    src: url('../html/fonts/Maddison-Signature-DEMO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    display: none;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    overflow: hidden;
+}
+
+.main-page{
+    
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 90%;
+    background: rgba(17, 17, 17, 0.93);
+    backdrop-filter: blur(1.7399999618530273vh); 
+    overflow: hidden;
+}
+
+.cam-page{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-page .top-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4%;
+    background: rgba(119, 119, 119, 0.36);
+    overflow: hidden;
+    z-index: 5555;
+}
+
+.main-page .top-bg .alt-icon{
+    position: absolute;
+    top: 52%;
+    right: 4%;
+    transform: translateY(-50%);
+    width: 1.8%;
+    height: 60%;
+    background: rgba(108, 108, 108, 0.32);
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1vw;
+    font-weight: 600;   
+    color: rgba(255, 255, 255, 0.17);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.main-page .top-bg .alt-icon:hover{
+    background-color: #8C8C8C;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.main-page .left-shadow{
+    position: absolute;
+    top: -1%;
+    left: 0%;
+    width: 6%;
+    background-color: red;
+    height: 15%;
+    transform: rotate(56.338deg);
+    fill: #F00;
+    filter: blur(10.1vh);
+    z-index: 4;
+}
+
+.main-page .alt-shadow{
+    border-radius: 40vh;
+    background: rgba(175, 175, 175, 0.36);
+    filter: blur(6vh);
+    position: absolute;
+    top: 87%;
+    z-index: 1;
+    left: 87%;
+    width: 15%;
+    height: 15%;
+}
+
+
+.main-page .top-bg .close-icon{
+    position: absolute;
+    top: 52%;
+    right: 1.5%;
+    transform: translateY(-50%);
+    width: 1.8%;
+    height: 60%;
+    background: rgba(88, 25, 25, 0.35);
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1vw;
+    font-weight: 600;   
+    transition: 0.3s;
+    color: rgba(255, 26, 26, 0.55);
+    cursor: pointer;
+}
+
+.main-page .top-bg .close-icon:hover{
+    background: #FF7B7B;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.main-page .top-bg .logo{
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    transform: translateY(-50%);
+    width: 1%;
+    height: 40%;
+    background-color: #343434;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1.5vw;
+    font-weight: 600;   
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.main-page .top-bg .link{
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 0.8vw;
+    font-weight: 300;   
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.main-page .filter-box{
+    position: absolute;
+    top: 8%;
+    left: 71%;
+    width: 7%;
+    height: 4.5%;
+    border-radius: 0.5vh;
+    opacity: 0.71;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    font-weight: 400;   
+    color: rgba(123, 123, 123, 0.45);
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.main-page .filter-box:hover{
+    background: #F33;
+    color: rgba(0, 0, 0, 0.80);
+}
+
+.main-page .box-active{
+    background: #F33;
+    color: rgba(0, 0, 0, 0.80);
+}
+
+.main-page .search-box{
+    position: absolute;
+    top: 8%;
+    left: 86%;
+    width: 12%;
+    height: 4.5%;
+    border-radius: 0.6vh;
+    background: rgba(106, 106, 106, 0.13);
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    font-weight: 400;   
+    color: rgba(255, 255, 255, 0.35);
+    transition: 0.3s;
+}
+
+.main-page .search-box .search-input{
+    width: 80%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    color: rgba(123, 123, 123, 0.45);
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    padding-left: 2%;
+    font-weight: 400;   
+}
+
+.main-page .search-box .icon-box{
+    width: 12%;
+    height: 30%;
+    position: absolute;
+    background: none;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    left: 85%;
+    font-family: 'TTLAKES';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.main-page .icon-box:hover{
+    background: #F33;
+    color: rgba(0, 0, 0, 0.80);
+}
+
+.main-page .header{
+    position: absolute;
+    color: #fff;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-family: 'ChakraPetch';
+    font-size: 1.8vw;
+    font-weight: 200;
+    top: 8%;
+    left: 2.2%;
+    z-index: 5;
+}
+
+.main-page .signature{
+    background: linear-gradient(180deg, #FB1212 25%, #501E1E 81.5%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    text-shadow: 0px 0px 50px #FB1212;
+    font-family: "Signature";
+    font-size: 3.8vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1vh;
+    position: absolute;
+    top: 7%;
+    left: 3.2%;
+    z-index: 999999999;
+}
+
+.main-page .desc{
+    position: absolute;
+    color: rgba(136, 136, 136, 0.58);
+    overflow: hidden;
+    text-transform: capitalize;
+    font-family: 'ChakraPetch';
+    font-size: 0.8vw;
+    font-weight: 200;
+    width: 30%;
+    top: 14%;
+    left: 2.2%;
+    z-index: 5;
+}
+
+.main-page .line{
+    position: absolute;
+    top: 8%;
+    left: 24%;
+    width: 45%;
+    height: 5%;
+    z-index: 5;
+}
+
+.main-page .cam-list{
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    width: 98%;
+    height: 83%;
+    overflow: hidden scroll;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+
+
+.main-page .cam-list::-webkit-scrollbar {
+    width: 3px;
+}
+
+.main-page .cam-list::-webkit-scrollbar-track {
+    background: rgba(138, 138, 138, 0.21);
+}
+
+.main-page .cam-list::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+}
+
+.main-page .cam-item{
+    position: relative;
+    width: 23.7%;
+    height: 48%;
+    background: rgba(131, 131, 131, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0.5%;
+    cursor: pointer;
+    transition: 0.3s;   
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-page .cam-item.active-orange{
+    background: linear-gradient(331deg, rgba(0, 0, 0, 0.00) 8.45%, rgba(255, 149, 0, 0.20) 100%), rgba(255, 255, 255, 0.03) !important;
+}
+
+.main-page .cam-item.active{
+    background: linear-gradient(331deg, rgba(0, 0, 0, 0.00) 8.45%, rgba(232, 45, 45, 0.20) 100%), rgba(255, 255, 255, 0.03) !important;
+}
+
+.main-page .bg-new{
+    position: absolute;
+    top: 62%;
+    left: 2%;
+
+    width: 96%;
+    height: 36%;
+    background: linear-gradient(331deg, rgba(0, 0, 0, 0.00) 8.45%, rgba(232, 45, 45, 0.20) 100%), rgba(255, 255, 255, 0.03) !important;
+    overflow: initial;
+    z-index: 1;
+}
+
+
+.main-page .cam-list .cam-item .cam-img{
+    position: relative;
+    width: 100%;
+    background: #000;
+    height: 60%;
+    overflow: hidden;
+    display: flex;
+    top: -20%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-page .cam-list .cam-item .cam-bg{
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+    background: rgb(0, 0, 0,0.5);
+    height: 60%;
+    overflow: hidden;
+    display: flex;
+    top: 0%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning-img{
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    top: 0%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(68.33% 68.33% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 149, 0, 0.30) 100%);
+    z-index: 8;
+}
+
+.error-img {
+    position: absolute;
+    width: 80%;
+    height: 50%;
+    top: 5%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: url(../html/images/cam20.jpg) lightgray 50% / cover no-repeat;
+    z-index: 1;
+    z-index: 15;
+    transition: 0.3s;
+    animation: shadowBlink 3s infinite;
+    border-radius: 1.3vh;
+    border: 0.1vh solid #F00;
+    box-shadow: 0px 0px 2vh 1vh rgba(255, 0, 0, 0.19);
+}
+
+@keyframes shadowBlink {
+    0%, 100% {
+        box-shadow: 0px 0px 0vh 0vh rgba(255, 0, 0, 0.19);
+    }
+    50% {
+        box-shadow: 0px 0px 2vh 1.5vh rgba(255, 0, 0, 0.19);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.error-img .text{
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Monument Extended';
+    font-size: 1.5vh;
+    font-weight: 600;
+    color: #F00;
+    z-index: 2;
+    text-transform: uppercase;
+    color: #FF4E4E;
+    text-align: center;
+    text-shadow: 0px 0px 22.7px rgb(255 78 78 / 5%);
+    font-size: 1.9vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.error-img .text-2{
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Monument Extended';
+    font-size: 3vh;
+    font-weight: 600;
+    color: rgba(212, 109, 109, 0.08);
+    z-index: 2;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0px 0px 22.7px rgb(255 78 78 / 1%);
+}
+
+.error-img img{
+    position: absolute;
+    top: 38%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 60%;
+    z-index: 2;
+}
+
+.error-img .hr{
+    width: 4vh;
+    height: 0.2vh;
+    position: absolute;
+    background: #FF4E4E;
+    top: 60%;
+    left: 44%;
+}
+
+.main-page .cam-list .cam-item .line{
+    position: absolute;
+    top: 64%;
+    width: 96%;
+    height: 20%;
+    left: 2%;
+}
+
+.main-page .cam-list .cam-item .index{
+    position: absolute;
+    top: 67%;
+    left: 4.5%;
+    width: 9%;
+    height: 8%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    font-family: "Monument Extended";
+    font-size: 1.3vh;
+    font-weight: 400;   
+    color: white;
+    background: radial-gradient(76.65% 87.85% at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(153, 153, 153, 0.02) 100%);}
+
+.main-page .cam-list .cam-item .name{
+    position: absolute;
+    top: 67%;
+    left: 15%;
+    width: 76%;
+    height: 8%;
+    overflow: hidden;
+    display: flex;
+    z-index: 5;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5%;
+    font-family: 'Gilroy';
+    font-size: 1.3vh;
+    font-weight: 600;   
+    color: white;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.83);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(153, 153, 153, 0.02) 100%);}
+
+.main-page .cam-list .cam-item .street{
+    position: absolute;
+    top: 77%;
+    z-index: 5;
+    left: 15%;
+    width: 50%;
+    height: 8%;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5%;
+    font-family: 'Gilroy';
+    font-size: 1.3vh;
+    font-weight: 600;   
+    color: white;
+    opacity: 0.64;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(153, 153, 153, 0.02) 100%);
+}
+
+.main-page .cam-list .cam-item .code{
+    position: absolute;
+    top: 77%;
+    left: 72%;
+    width: 24%;
+    height: 8%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    font-family: 'Gilroy';
+    font-size: 1.3vh;
+    font-weight: 600;   
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.main-page .cam-list .cam-item .sound-box{
+    position: absolute;
+    z-index: 5;
+    top: 52%;
+    right: 88%;
+    width: 6%;
+    height: 5%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    color: white;
+}
+
+.main-page .cam-list .cam-item .sound-box .sound{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.main-page .cam-list .cam-item .sound-box .sound-line{
+    position: absolute;
+    top: 0%;
+    width: 98%;
+    opacity: 0;
+    height: 100%;
+}
+
+.main-page .cam-list .cam-item .gps-icon{
+    position: absolute;
+    top: 77%;
+    left: 4.5%;
+    width: 9%;
+    height: 8%;
+    z-index: 5;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    color: white;
+    background: radial-gradient(76.65% 87.85% at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(153, 153, 153, 0.02) 100%);
+}
+
+.main-page .cam-list .cam-item .gps-icon img{
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    transition: 0.3s;
+}
+
+.main-page .cam-list .cam-item .gps-icon img:hover{
+    width: 70%;
+    height: 70%;
+}
+
+.main-page .cam-list .cam-item .warning{
+    position: absolute;
+    top: 87%;
+    left: 4.5%;
+    width: 30%;
+    height: 8%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    z-index: 5;
+    font-weight: 600;   
+    color: #8AFF92;
+    background: rgba(49, 125, 54, 0.24);
+}
+
+.main-page .cam-list .cam-item .active{
+    color: #F00;
+    background: rgba(115, 23, 23, 0.24);
+}
+
+.main-page .cam-list .cam-item .warning-icon{
+    position: absolute;
+    top: 87%;
+    left: 36.5%;
+    width: 18%;
+    z-index: 5;
+    height: 8%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    background: radial-gradient(94.82% 77.03% at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(153, 153, 153, 0.00) 100%);
+}
+
+.main-page .cam-list .cam-item .warning-icon svg{
+    width: 60%;
+    height: 60%;
+    transition: 0.3s;
+}
+
+.main-page .cam-list .cam-item .warning-icon.active{
+    background: rgba(115, 23, 23, 0.24) !important;
+}
+
+.main-page .cam-list .cam-item .warning-icon.active svg path {
+    fill: #F00;
+    fill-opacity: 1;
+    /* animation: blinkr 1s infinite; */
+    background: rgba(115, 23, 23, 0.24) !important;
+    /* filter: drop-shadow(0px 0px 5px #F00); */
+}
+
+.main-page .cam-list .cam-item .warning-icon.orange-active svg path {
+    fill: #FF8C00;
+    fill-opacity: 1;
+    /* animation: blinkr 1s infinite; */
+    background: rgba(115, 23, 23, 0.24) !important;
+    /* filter: drop-shadow(0px 0px 5px #F00); */
+}
+
+.main-page .cam-list .cam-item .warning-icon.orange-active {
+    background: rgba(255, 165, 0, 0.24) !important;
+}
+
+@keyframes blinkr {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+.sound-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    z-index: 5;
+    left: 90%;
+    top: 50%;
+    transform: rotate(180deg);
+}
+
+
+.sound-bars {
+    display: flex;
+    gap: 4px;
+}
+
+.bar-line {
+    width: 4px;
+    height: 20px;
+    background-color: #000;
+    animation: ah 2s infinite ease-in-out;
+}
+
+.bar-line:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.bar-line:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes ah {
+    0%, 100% {
+        opacity: 0.2;
+        transform: translateY(0px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+
+.cam-page .border{
+    position: absolute;
+    top: 0;
+    left: 0;
+    top: 3.5%;
+    left: 2.5%;
+    width: 95%;
+    height: 93%;
+    overflow: hidden;
+}
+
+.cam-page .border-alt{
+    position: absolute;
+    top: 3.5%;
+    left: 2.5%;
+    width: 95%;
+    height: 93%;   
+    z-index: 0; 
+}
+
+.cam-page .date-box{
+    position: absolute;
+    top: 4.5%;
+    left: 3%;
+    width:6%;
+    height: 3.5%;
+    background: rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    color: white;
+}
+
+.cam-page .time-box{
+    position: absolute;
+    top: 8.5%;
+    left: 3%;
+    width: 4%;
+    height: 3%;
+    background: rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    font-weight: 500;   
+    color: white;
+}
+
+.cam-page .user-box{
+    position: absolute;
+    top: 37.5%;
+    left: 3%;
+    width: 12%;
+    height: 22%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    background: rgba(131, 131, 131, 0.08);
+    color: white;
+}
+
+.cam-page .user-box .red{
+    width: 100%;
+    height: 100%;
+}
+
+.cam-page .info-box{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 35%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    color: white;
+    border: 0.1vh solid rgba(97, 97, 97, 0.25);
+}
+
+.cam-page .info-box .img-box{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 30%;
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 0.1vh solid rgba(255, 255, 255, 0.25);
+}
+
+.cam-page .info-box .img-box .face{
+    width: 100%;
+    height: 100%;
+}
+
+.cam-page .info-box .header{
+    position: absolute;
+    top: -13%;
+    left: 40%;
+    width: 90%;
+    height: 70%;
+    text-transform: uppercase;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 0.9vh;
+    font-weight: 500;   
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.cam-page .info-box .name{
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    width: 90%;
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 500;   
+    color: white;
+}
+
+.cam-page .info-box .signal{
+    position: absolute;
+    top: 62%;
+    left: 40%;
+    width: 50%;
+    height: 24%;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5%;
+    font-family: 'Gilroy';
+    font-size: 1vh;
+    font-weight: 500;   
+    color: #FF5858;
+    background: rgba(255, 88, 88, 0.35);
+}
+
+.cam-page .dedected-list{
+    position: absolute;
+    top: 41%;
+    left: 4.5%;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    display: flex;  
+    flex-direction: column;
+    /* justify-content: start; */
+}
+
+.cam-page .dedected-list::-webkit-scrollbar {
+    display: none;
+}
+
+.cam-page .dedected-item{
+    position: relative;
+    width: 90%;
+    height: 34%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(153, 153, 153, 0.02) 100%);
+    margin: 0.5%;
+    margin-top: 0.7vh;
+    cursor: pointer;
+}
+
+.cam-page .dedected-item .warning-icon{
+    position: absolute;
+    top: 15%;
+    left: 5% !important;
+    width: 17%;
+    height: 65%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1.5vh;
+    font-weight: 600;   
+}
+
+.cam-page .dedected-item .warning-icon svg{
+    width: 60%;
+    height: 60%;
+    transition: 0.3s;
+}
+
+.cam-page .dedected-item .warning-icon.active svg path {
+    fill: #F00;
+    fill-opacity: 1;
+    animation: blinkr 1s infinite;
+    filter: drop-shadow(0px 0px 5px #F00);
+}
+
+@keyframes blinkr {
+    0%, 100% {
+        filter: drop-shadow(0px 0px 5px #F00);
+    }
+    50% {
+        filter: drop-shadow(0px 0px 30px #F00);
+    }
+}
+
+.cam-page .dedected-item .dedected-name{
+    position: absolute;
+    top: 16%;
+    left: 27%;
+    width: 100%;
+    height: 65%;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.4vh;
+    font-weight: 500;   
+    color: white;
+}
+
+.cam-page .lines{
+    position: absolute;
+    top: 7.5%;
+    left: 2.5%;
+    width: 95%;
+    height: 85%;
+}
+
+.cam-page .crosshair{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cam-page .record-box {
+    position: absolute;
+    top: 87%;
+    left: 3.3%;
+    width: 0.5%;
+    height: 1%;
+    border-radius: 100%;
+    background: red;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0px 0px 0px 5px rgba(153, 1, 1, 0.3); 
+}
+
+.cam-page .record-text{
+    position: absolute;
+    top: 86.3%;
+    left: 2.5%;
+    width: 10%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.7vh;
+    font-weight: 600;   
+    color: #F00;
+    text-transform: uppercase;
+}
+
+.cam-page .cctv-box{
+    position: absolute;
+    top: 90.5%;
+    left: 3%;
+    width:6%;
+    text-transform: uppercase;
+    height: 5%;
+    background: rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.9vh;
+    font-weight: 600;   
+    color: white;
+}
+
+.cam-page .min-border{
+    position: absolute;
+    top: 92.5%;
+    left: 10%;
+    width: 0.3%;
+    height: 0.6%;
+    overflow: hidden;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.cam-page .resulation-text{
+    position: absolute;
+    top: 91.1%;
+    left: 7%;
+    width: 10%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 2.5vh;
+    font-weight: 600;   
+    color: white;
+    text-transform: uppercase;
+}
+
+.cam-page .res-text{
+    position: absolute;
+    top: 91.1%;
+    left: 14%;
+    width: 5%;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 500;   
+    color: white;
+    text-transform: uppercase;
+}
+
+.cam-page .record2-box{
+    position: absolute;
+    top: 86.5%;
+    left: 15%;
+    width: 5%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    font-weight: 500;   
+    color: white;
+}
+
+.cam-page .mode-list{
+    position: absolute;
+    top: 92%;
+    left: 40%;
+    width: 22%;
+    height: 5%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    font-weight: 500;   
+    color: white;
+}
+
+.cam-page .mode-list .mode{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 85%;
+    margin: 0 0.5%;
+    z-index: 5;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.7vh;
+    text-transform: uppercase;
+    font-weight: 500;   
+    color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cam-page .mode-list .active{
+    color: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: linear-gradient(180deg, rgba(153, 153, 153, 0.45) 0%, rgba(255, 255, 255, 0.45) 100%);
+}
+
+.cam-page .mode-text{
+    position: absolute;
+    top: 97%;
+    left: 46%;
+    width: 10%;
+    height: 5%;
+    overflow: hidden;
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    font-weight: 500;   
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.cam-page .mouse-text{
+    position: absolute;
+    top: 93.7%;
+    left: 67%;
+    width: 15%;
+    overflow: hidden;
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.2vh;
+    font-weight: 500;   
+    color: #fff;
+}
+
+.cam-page .mouse-icon{
+    position: absolute;
+    top: 92.7%;
+    left: 80.2%;
+    width: 1.9%;
+    height: 3%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'TTLAKES';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    color: white;
+}
+
+.cam-page .switch-text{
+    position: absolute;
+    top: 93.7%;
+    left: 80.2%;
+    width: 10%;
+    overflow: hidden;
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 600;   
+    color: #fff;
+}
+
+.cam-page .switch-right-text{
+    position: absolute;
+    top: 94%;
+    left: 87%;
+    overflow: hidden;
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.1vh;
+    font-weight: 500;   
+    color: #fff;
+}
+
+.cam-page .loc-header{
+    position: absolute;
+    top: 3.5%;
+    right: 2.2%;
+    width: 10%;
+    text-transform: uppercase;
+    height: 3.5%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    font-weight: 500;   
+    color: white;
+}
+
+.cam-page .loc-main{
+    position: absolute;
+    top: 7%;
+    right: 4.6%;
+    width: 10%;
+    height: 3.5%;
+    overflow: hidden;
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    text-transform: capitalize;
+    font-weight: 500;   
+    color: white;
+}
+
+.cam-page .loc-alt{
+    position: absolute;
+    top: 9%;
+    right: 4.6%;
+    width: 10%;
+    height: 3.5%;
+    overflow: hidden;
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    align-items: center;
+    font-family: 'Gilroy';
+    font-size: 1.5vh;
+    text-transform: capitalize;
+    font-weight: 500;   
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.cam-page .loc-img{
+    position: absolute;
+    top: 8.6%;
+    right: 3%;
+    width: 1%;
+    height: 2%;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cam-page .coords-list{
+    width: 50%;
+    height: 15%;
+    top: -5%;
+    left: 25%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.cam-page .coords-item{
+    width: 7%;
+    height: 40%;
+    position: relative;
+    z-index: 2;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    flex-shrink: 0;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.cam-page .coords-list::-webkit-scrollbar {
+    display: none;
+}
+
+.cam-page .coords-item .number{
+    position: absolute;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    font-family: 'Gilroy';
+    top: 60%;
+    left: 37%;
+    font-size: 1.3vh;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.cam-page .coords-item .line-1{
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 50%;
+    height: 5%;
+    background: rgba(255, 255, 255, 0.50);
+    transform: rotate(90deg);
+}
+
+.cam-page .coords-item .line-2{
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 80%;
+    height: 5%;
+    background: rgba(255, 255, 255, 0.50);
+    transform: rotate(90deg);
+}
+
+.cam-page .coords-item .line-3{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 5%;
+    background: rgba(255, 255, 255, 0.50);
+    transform: rotate(90deg);
+}
+
+
+.loading {
+    display: none;
+    width: 5vh;
+    height: 5vh;
+    border: 0.5vh solid rgba(255, 255, 255, 0.2);
+    border-top: 0.5vh solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
